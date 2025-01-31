@@ -1,9 +1,9 @@
 function AdmLogout(){
     $.ajax({
-        url: "http://localhost:8080/indahadmin/logout",
+        url: "indahadmin/logout",
         type: "POST",
         success: function(){
-            window.location.href="http://localhost:8080/indahwisata";
+            window.location.href="indahwisata";
         }
     });
 }

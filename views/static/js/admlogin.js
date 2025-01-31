@@ -6,13 +6,13 @@ $(document).ready(function(){
         formData.append("password", $("#password").val());
 
         $.ajax({
-            url: "http://localhost:8080/indahadmin/login",
+            url: "/indahadmin/login",
             type: "POST",
             processData:false,
             contentType: false,
             data: formData,
             success: function(){
-                window.location.href="http://localhost:8080/indahadmin/product";
+                window.location.href="indahadmin/product";
             },
             error: function(xhr){
                 const response = JSON.parse(xhr.responseText);

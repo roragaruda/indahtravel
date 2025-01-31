@@ -41,7 +41,7 @@ function savePhotos(id) {
         formData.append('photos', blob, filename);
     });
     $.ajax({
-    url:`http://localhost:8080/product/photos/${id}`,
+    url:`product/photos/${id}`,
     method:"POST",
     processData:false,
     contentType: false,
@@ -54,7 +54,7 @@ function savePhotos(id) {
 
 function deletePhotos(id){
     $.ajax({
-        url:`http://localhost:8080/product/photos/${id}`,
+        url:`product/photos/${id}`,
         method: "DELETE",
         success: function(){
             const div = document.getElementById(`photo-${id}`);
@@ -72,7 +72,7 @@ function deletePhotos(id){
 
 function appendPhotos(id){
     $.ajax({
-        url:`http://localhost:8080/product/${id}`,
+        url:`product/${id}`,
         method:"GET",
         success:function(products){
             $("#nama-destinasi").empty();
@@ -103,7 +103,7 @@ function appendPhotos(id){
 
 $(document).ready(function(){
     $.ajax({
-        url:"http://localhost:8080/product",
+        url:"product",
         method:"GET",
         success:function(products){
             $("#product-photo-table").empty();

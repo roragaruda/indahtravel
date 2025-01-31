@@ -14,7 +14,7 @@ function tdateFormatter(date){
 function productView(id){
     $("#view-product").empty();
     $.ajax({
-        url:`http://localhost:8080/product/${id}`,
+        url:`product/${id}`,
         method: "GET",
         success: function(products){
             const startDate = tdateFormatter(products.StartDate);
@@ -39,7 +39,7 @@ function productView(id){
 function productEdit(id){
     $("#product-edit").empty();
     $.ajax({
-        url:`http://localhost:8080/product/${id}`,
+        url:`product/${id}`,
         method: "GET",
         success: function(products){
             var startDate = products.StartDate.split("T");
@@ -88,13 +88,13 @@ function productEdit(id){
                     console.log($("#edit-startdateInput").val());
             
                     $.ajax({
-                        url: `http://localhost:8080/product/edit/${products.ID}`,
+                        url: `product/edit/${products.ID}`,
                         type: "PUT",
                         processData:false,
                         contentType: false,
                         data: formData,
                         success: function(){
-                            window.location.href="http://localhost:8080/indahadmin/product";
+                            window.location.href="indahadmin/product";
                         },
                         error: function(xhr){
                             const response = JSON.parse(xhr.responseText);
@@ -112,10 +112,10 @@ function productDelete(id, name){
     $("#delBtn").on("click", function(){
         $("#delete-footer").empty();
         $.ajax({
-            url:`http://localhost:8080/product/delete/${id}`,
+            url:`product/delete/${id}`,
             method: "DELETE",
             success: function(){
-                window.location.href="http://localhost:8080/indahadmin/product";
+                window.location.href="indahadmin/product";
             },
             error: function(xhr){
                 const response = JSON.parse(xhr.responseText);
@@ -130,7 +130,7 @@ function productDelete(id, name){
 
 $(document).ready(function(){
     $.ajax({
-        url:"http://localhost:8080/product",
+        url:"product",
         method:"GET",
         success:function(products){
             $("#product-table").empty();
@@ -206,13 +206,13 @@ $(document).ready(function(){
         if(imgInput){
             formData.append("thumbnail", $("#thumbnail")[0].files[0]);
             $.ajax({
-                url: "http://localhost:8080/product/add",
+                url: "product/add",
                 type: "POST",
                 processData:false,
                 contentType: false,
                 data: formData,
                 success: function(){
-                    window.location.href="http://localhost:8080/indahadmin/product";
+                    window.location.href="indahadmin/product";
                 },
                 error: function(xhr){
                     const response = JSON.parse(xhr.responseText);

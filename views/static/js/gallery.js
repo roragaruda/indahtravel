@@ -16,11 +16,11 @@ function appendDeleteGallery(id, name){
     $("#confirm-message").append(`Confirm Delete Gallery: ${name} ?`)
     $("#delBtn").on("click", function(){
         $.ajax({
-            url:`http://localhost:8080/gallery/${id}`,
+            url:`gallery/${id}`,
             method:"DELETE",
             success:function(){
                 console.log("delete succesful");
-                window.location.href="http://localhost:8080/indahadmin/gallery";
+                window.location.href="indahadmin/gallery";
             },
             error: function(xhr){
                 const response = JSON.parse(xhr.responseText);
@@ -36,14 +36,14 @@ function addPhotos(id, formData){
         console.log(`${key}:`, value);
     });
     $.ajax({
-        url:`http://localhost:8080/gallery/photos/add/${id}`,
+        url:`gallery/photos/add/${id}`,
         method:"POST",
         processData:false,
         contentType: false,
         data: formData,
         success: function(){
             console.log("Upload succesful");
-            window.location.href="http://localhost:8080/indahadmin/gallery";
+            window.location.href="indahadmin/gallery";
         },
         error: function(xhr){
             const response = JSON.parse(xhr.responseText);
@@ -65,7 +65,7 @@ function removeDiv(id){
 
 function appendGalleryPhotos(id, name){
     $.ajax({
-        url:`http://localhost:8080/gallery/${id}`,
+        url:`gallery/${id}`,
         method:"GET",
         success:function(gallery){
             $("#img-container").empty();
@@ -96,13 +96,13 @@ function appendGalleryPhotos(id, name){
         formData.append("gallery-name", $("#nama-input").val());
         console.log($("#nama-input").val())
         $.ajax({
-            url:`http://localhost:8080/gallery/edit/${id}`,
+            url:`gallery/edit/${id}`,
             method:"PUT"
         })
         if(arr.length>0){
             for (let i = 0; i < arr.length; i++){
                 $.ajax({
-                    url:`http://localhost:8080/gallery/photos/${arr[i]}`,
+                    url:`gallery/photos/${arr[i]}`,
                     method:"DELETE"
                 });
             };
@@ -143,7 +143,7 @@ function appendGalleryPhotos(id, name){
         });
         addPhotos(id, imgformData);
         // $.ajax({
-        //     url:`http://localhost:8080/gallery/photos/add/${id}`,
+        //     url:`gallery/photos/add/${id}`,
         //     method:"POST",
         //     processData:false,
         //     contentType: false,
@@ -164,7 +164,7 @@ function appendGalleryPhotos(id, name){
 
 $(document).ready(function(){
     $.ajax({
-        url:"http://localhost:8080/gallery",
+        url:"gallery",
         method:"GET",
         success: function(galleries){
             $("#gallery-data").empty();
@@ -199,7 +199,7 @@ $(document).ready(function(){
         var formData = new FormData();
         formData.append("gallery-name", $("#galleryname").val())
         $.ajax({
-            url:"http://localhost:8080/gallery/add",
+            url:"gallery/add",
             method:"POST",
             processData:false,
             contentType: false,

@@ -2,10 +2,10 @@ function deleteOrder(id, name){
     $("#confirm-message").empty().append(`Confirm Delete Order for:${name}?`)
     $("#delBtn").on("click", function(){
         $.ajax({
-            url: `http://localhost:8080/orders/${id}`,
+            url: `orders/${id}`,
             method:"DELETE",
             success: function(){
-                window.location.href="http://localhost:8080/indahadmin/orders";
+                window.location.href="indahadmin/orders";
             }
         })
     })
@@ -15,13 +15,13 @@ function changeStatus(id, status){
     var formData = new FormData();
     formData.append("status", status);
     $.ajax({
-        url: `http://localhost:8080/orders/edit/${id}`,
+        url: `orders/edit/${id}`,
         method:"PUT",
         processData:false,
         contentType: false,
         data: formData,
         success: function(){
-            window.location.href="http://localhost:8080/indahadmin/orders";
+            window.location.href="indahadmin/orders";
         }
     });
 
@@ -34,7 +34,7 @@ function appendView(id, image){
 
 $(document).ready(function(){
     $.ajax({
-        url:"http://localhost:8080/orders",
+        url:"orders",
         method:"GET",
         success: function(orders){
             $("#unconfirmed").empty();
