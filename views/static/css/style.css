@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    width: 100%;
+    background: #e5e7eb;
+    position: relative;
+    display: flex;
+}
+
+#menu{
+    background: #51AFC4;
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left:0;
+}
+
+#menu .logo{
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 30px 0 0 30px;
+}
+
+#menu .items{
+    margin-top: 40px;
+}
+
+#menu .items li{
+    list-style: none;
+    padding: 15px 0;
+    transition: 0.3s ease;
+}
+
+#menu .items li:hover{
+    background: #19a3c2;
+    cursor: pointer;
+}
+
+/* #menu .items li:nth-child(1){
+    border-left: 4px solid white;
+} */
+
+/* #menu .items li:hover a{
+    color: white;
+} */
+
+
+#menu .items li a{
+    text-decoration: none;
+    color: white;
+    font-weight: 300px;
+    margin: 0 10px 0 25px;
+    transition: 0.3s ease;
+}
+
+#interface{
+    width: calc(100% - 300px);
+    margin-left: 300px;
+    position: relative;
+}
+
+#interface .nav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: white;
+    padding: 15px 30px;
+    border-bottom: 3px solid lightblue;
+}
+
+#interface .nav .profile img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: gray;
+}
+
+.header-container {
+    padding: 30px 30px 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.i-name{
+    font-size: 25px;
+    font-weight: 700;
+    padding: 0;
+    /* padding: 30px 30px 0 30px;
+    font-size: 25px;
+    font-weight: 700; */
+}
+
+.orders-name{
+    padding: 30px 30px 0 30px;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.add-btn {
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.img-container{
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+    scrollbar-width: thin;
+    -ms-overflow-style: none;
+}
+
+.img-container img{
+    flex: 0 0 auto;
+    width: calc(20%-8px);
+    width: 250px;
+    height: 250px; /* Set fixed height */
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Editable TextArea */
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Grid layout for textareas */
+.textarea-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+    gap: 20px; /* Spasi antar item */
+}
+
+/* Textarea item */
+.textarea-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Label */
+.textarea-item label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Editable textarea */
+.editable-textarea {
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    resize: vertical;
+}
+
+/* Save button */
+.save-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.save-button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .textarea-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom di perangkat kecil */
+    }
+
+    .editable-textarea {
+        font-size: 12px;
+    }
+
+    .save-button {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .textarea-grid {
+        grid-template-columns: 1fr; /* 1 kolom di perangkat sangat kecil */
+    }
+}
+
+.x-button{
+    color: red;
+}

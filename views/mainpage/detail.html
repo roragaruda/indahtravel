@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Indah Wisata - Details</title>
+    <meta name="description" content="Travel-Website-Landing-Page" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open Sans:wght@400;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Volkhov:wght@700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google Sans:wght@500&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="shortcut icon" href="/assets/images/LogoIndahWisata.jpeg" type="image/x-icon">
+    <!-- Custom CSS  -->
+    <link rel="stylesheet" href="/static/css/global.css" />
+    <link rel="stylesheet" href="/static/css/style2.css" />
+    <link rel="stylesheet" href="/static/css/responsive.css" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+</head>
+
+<body class="body">
+    <div class="main-container">
+        <div class="detail-container"></div>
+        <div id="header-container"></div>
+
+        <script>
+            fetch('/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                });
+        </script>
+
+        <!-- Top Destinations -->
+        <div class="detail_component">
+            <div class="container">
+                <div class="detail-parent-title">
+                    <h1 id="product-title">Title</h1>
+                </div>
+                <div class="map-pointer">
+                    <img style="height: 20px; width: 16px;" src="/assets/images/map-pointer.svg" />
+                    <h3 id="product-destination">Description</h3>
+                </div>
+                <div class="map-pointer">
+                    <img style="height: 16px; width: 16px;" src="/assets/images/kalender.svg" />
+                    <h3 id="product-date">Date</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="photo-container container">
+            <!-- photo Large -->
+            <div class="photo-large" id="thumbnail">
+                
+            </div>
+
+            <!-- photo Small -->
+            <div class="photo-small" id="product-photos">
+
+            </div>
+        </div>
+
+        <div class="location-price-container container">
+            <!-- Box untuk Lokasi -->
+            <div class="map-location-box">
+                <div class="map-location">
+                    <div class="location-icon">
+                        <img src="/assets/images/map-pointer1.svg" alt="Map Pointer">
+                    </div>
+                    <div class="location-text">
+                        <a href="#" class="view-map">Lihat Peta &gt;</a>
+                        <p id="dest">Kepulauan Seribu Utara, Pulau Seribu</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Box untuk Harga dan Tombol -->
+            <div class="price-box">
+                <div class="price-content">
+                    <div class="price-details">
+                        <span class="start-price">Harga Per Tiket</span>
+                        <span class="current-price" id="price"></span>
+                    </div>
+                    <a href="#">
+                        <button class="select-button" id="pesan">Pesan</button>
+                    </a>
+                </div>
+            </div>
+            <div class="jumlah-partisipan-box">
+                <span class="partisipan-text">Jumlah Partisipan</span>
+                <span class="partisipan-count" id="participant"></span> <!-- Bisa disesuaikan dengan nilai dinamis -->
+            </div>
+        </div>
+
+        <div class="tour-schedule">
+            <div class="container">
+                <h3>Deskripsi</h3>
+                <ul>
+                    <h3 id="description"></h3>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilihan-container"></div>
+        <script>
+            fetch('/pilihan.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('pilihan-container').innerHTML = data;
+                });
+        </script>
+        <div id="tatacara-container"></div>
+        <script>
+            fetch('/tatacara.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('tatacara-container').innerHTML = data;
+                });
+        </script>
+        <div class="main-container">
+            <div id="footer-container"></div>
+            <script>
+                fetch('/footer.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-container').innerHTML = data;
+                    });
+            </script>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script>
+            function dateFormatter(date){
+                const [year, month, day] = date.split('-');
+                const formattedDate = `${day}/${month}/${year}`;
+                return formattedDate;
+            }
+
+            function tdateFormatter(date){
+                var newDate = date.split("T");
+                newDate = dateFormatter(newDate[0]);
+                return newDate;
+            }
+            $(document).ready(function(){
+                const url = new URL(window.location.href);
+                const pathnameParts = url.pathname.split('/');
+                const id = pathnameParts[pathnameParts.length - 1];
+                $.ajax({
+                    url:`http://localhost:8080/product/${id}`,
+                    method:"GET",
+                    success: function(products){
+                        const startDate = tdateFormatter(products.StartDate);
+                        const endDate = tdateFormatter(products.EndDate);
+                        var formatPrice = products.Harga.toLocaleString('id-ID'); 
+                        $("#price").empty();
+                        $("#product-title").empty();
+                        $("#product-destination").empty();
+                        $("#product-date").empty();
+                        $("#thumbnail").empty();
+                        $("#product-photos").empty();
+                        $("#dest").empty();
+                        $("#product-title").append(`${products.NamaDestinasi}`);
+                        $("#product-destination").append(`${products.NamaDestinasi}`);
+                        $("#dest").append(`${products.NamaDestinasi}`);
+                        $("#price").append(`Rp. ${formatPrice} / Orang`);
+                        $("#description").empty().append(`${products.Deskripsi}`);
+                        $("#product-date").append(`${startDate} - ${endDate}`);
+                        $("#thumbnail").append(`<img src="/assets/image/thumbnail/${id}/${products.Thumbnail}" alt="photo Large">`);
+                        if(products.Photo.length > 0){
+                            const shuffledPhotos = products.Photo.sort(() => 0.5 - Math.random());
+                            const productPhotos = shuffledPhotos.slice(0, 4);
+                            productPhotos.forEach(productphoto => {
+                                $("#product-photos").append(
+                                    `<div class="photo-small-item">
+                                        <img src="/assets/image/productphoto/${id}/${productphoto.ImageName}" alt="Small Image 1">
+                                    </div>`);
+                            });
+                        }
+
+                        if (products.Order.length > 0){
+                            let participant = 0;
+                            products.Order.forEach(order => {
+                                if(order.Status === "Confirmed"){
+                                    participant = participant + order.JmlPeserta;
+                                }
+                            })
+                            $("#participant").append(`${participant}`);
+                        }else{
+                            $("#participant").append("0");
+                        }
+                        
+                    }
+                });
+
+                $("#pesan").on("click", function(){
+                    window.location.href=`http://localhost:8080/indahwisata/order/${id}`
+                });
+            })
+        </script>
+
+        <!-- Email validation  -->
+        <script>
+            function validateEmail() {
+                var email = document.getElementById("email").value;
+                var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+                if (emailPattern.test(email)) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "send_newsletter.php", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            // Check if the response indicates success, for example, by returning "Success" from the server
+                            if (xhr.responseText === "Success") {
+                                alert("Email sent successfully");
+                                // Redirect to another page after a successful submission
+                                window.location.href = "index.html";
+                            } else {
+                                alert("Email sending failed");
+                            }
+                        }
+                    };
+                    var emailContent = "You can include the email content here.";
+                    var params = "email=" + email + "&emailContent=" + emailContent;
+                    xhr.send(params);
+                } else {
+                    alert("Invalid email address");
+                }
+            }
+        </script>
+
+        <!-- Email Icon  -->
+        <script>
+            const emailInput = document.getElementById("email");
+            const icon = document.querySelector(".input-icon");
+
+            emailInput.addEventListener("blur", () => {
+                if (emailInput.value === "") {
+                    icon.style.display = "inline"; // Show the icon when the input loses focus and is empty
+                } else {
+                    icon.style.display = "none"; // Hide the icon when the input loses focus and has data
+                }
+            });
+
+            emailInput.addEventListener("focus", () => {
+                icon.style.display = "none"; // Hide the icon when the input is in focus
+            });
+        </script>
+
+        <!-- Heart Animation JS-->
+        <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+        <script>
+            $(function () {
+                $(".heart").on("click", function () {
+                    $(this).toggleClass("is-active");
+                });
+            });
+        </script>
+
+        <!-- Bootstrap Bundle with Popper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <script src="/static/js/index.js"></script>
+
+        <!-- Vanilla Card Hover Effect JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+        <script>
+            VanillaTilt.init(document.querySelectorAll(".glareType"), {
+                max: 2,
+                speed: 700,
+                glare: true,
+                "max-glare": 0.1,
+            });
+
+            VanillaTilt.init(document.querySelectorAll(".glareType2"), {
+                max: 3,
+                speed: 700,
+                glare: true,
+                "max-glare": 0.1,
+            });
+        </script>
+
+        <!-- Hero BG scroll  -->
+        <script>
+            // JavaScript to add the scrolling class and hide the element after scrolling {}px
+            window.addEventListener("scroll", function () {
+                const heroBg = document.querySelector(".hero__bg");
+                const scrollPosition = window.scrollY;
+
+                if (scrollPosition > 0) {
+                    heroBg.classList.add("scrolling");
+
+                    if (scrollPosition > 400) {
+                        // Adjusted from 900 to 1200
+                        heroBg.style.display = "none";
+                    } else {
+                        heroBg.style.display = "block";
+                    }
+                } else {
+                    heroBg.classList.remove("scrolling");
+                    heroBg.style.display = "block";
+                }
+            });
+        </script>
+
+        <!-- Card :Hover with Blur -->
+        <script>
+            // Get all the item elements
+            const itemElements = document.querySelectorAll('.destinations_component .item');
+
+            // Add a hover event listener to each item
+            itemElements.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    // Apply the scale effect to the hovered item
+                    item.style.transform = 'scale(1.05)';
+
+                    // Apply the blur effect to other items
+                    itemElements.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.style.filter = 'blur(3px)';
+                            otherItem.style.transform = 'scale(0.9)';
+                            otherItem.style.boxShadow = 'none';
+                        }
+                    });
+
+                    // Remove box-shadow for .item_box when hovered
+                    item.querySelector('.items_content .item_box').style.boxShadow = '0 100px 80px rgba(0, 0, 0, 0.02), 0 64.8px 46.85px rgba(0, 0, 0, 0.02), 0 38.5px 25.48px rgba(0, 0, 0, 0.01), 0 20px 13px rgba(0, 0, 0, 0.01), 0 8.1px 6.52px rgba(0, 0, 0, 0.01), 0 1.9px 3.15px transparent';
+                });
+
+                // Add a mouse leave event listener to reset the effects
+                item.addEventListener('mouseleave', () => {
+                    // Reset the transform and remove blur for the hovered item
+                    item.style.transform = 'none';
+                    item.style.filter = 'none';
+
+                    // Reset the transform and remove blur for other items
+                    itemElements.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.style.transform = 'none';
+                            otherItem.style.filter = 'none';
+                        }
+                    });
+
+                    // Reset the box-shadow for .item_box when mouse leaves
+                    item.querySelector('.items_content .item_box').style.boxShadow = '0 100px 80px rgba(0, 0, 0, 0.02), 0 64.8px 46.85px rgba(0, 0, 0, 0.02), 0 38.5px 25.48px rgba(0, 0, 0, 0.01), 0 20px 13px rgba(0, 0, 0, 0.01), 0 8.1px 6.52px rgba(0, 0, 0, 0.01), 0 1.9px 3.15px transparent';
+                });
+            });
+
+        </script>
+
+        <!-- onClick -->
+        <script>
+            function redirectToIndex() {
+                window.open("index.html", "_blank");
+            } function vishwa() {
+                window.open("https://vishwa.vercel.app/", "_blank");
+            }
+        </script>
+
+        <!-- Sticky Header -->
+        <script>
+            let prevScrollPos = window.pageYOffset;
+            const header = document.querySelector(".header-main");
+
+            window.onscroll = function () {
+                let currentScrollPos = window.pageYOffset;
+                if (prevScrollPos > currentScrollPos) {
+                    // Scrolling up, show the header
+                    header.classList.remove("hidden");
+                } else {
+                    // Scrolling down, hide the header
+                    header.classList.add("hidden");
+                }
+                prevScrollPos = currentScrollPos;
+            }
+        </script>
+
+</body>
+
+</html>

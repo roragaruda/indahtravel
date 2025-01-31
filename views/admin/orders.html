@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script defer src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    <script defer src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
+    <script defer src="/static/js/orders.js"></script>
+    <title>Indah Admin</title>
+    <link rel="shortcut icon" href="/assets/images/LogoIndahWisata.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script defer src="/static/js/admlogout.js"></script>
+</head>
+<body>
+    <section id="menu">
+        <script>
+            fetch('/menu.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('menu').innerHTML = data;
+                });
+        </script>
+    </section>
+
+    <section id="interface">
+        <div class="nav">
+            <div>
+                <button data-bs-toggle="modal" data-bs-target="#logout-modal" class="btn btn-danger">Logout</button>
+            </div>
+        </div>
+        <h3 class="orders-name">Pending Orders</h3>
+
+        <div style="margin-left: 30px; margin-right: 30px; text-align: left;">
+            <table id="ordertable" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Nama Peserta</th>
+                        <th>No Telp</th>
+                        <th>Jumlah Peserta</th>
+                        <th>Status</th>
+                        <th>Bukti Pembayaran</th>
+                        <th style="width: 20%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="unconfirmed">
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="orders-name">Confirmed Orders</h3>
+        <div style="margin-left: 30px; margin-right: 30px; text-align: left;">
+            <table id="orderconfirmedtable" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Nama Peserta</th>
+                        <th>No Telp</th>
+                        <th>Jumlah Peserta</th>
+                        <th>Status</th>
+                        <th>Bukti Pembayaran</th>
+                        <th style="width: 20%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="confirmed">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- View Product Modal -->
+        <div class="modal fade" id="view-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-title">View Proof of Payment</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="view-proof"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Product Modal -->
+        <div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-title">Confirmation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="confirm-message"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="delBtn" class="btn btn-danger">Delete</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout Modal -->
+        <div class="modal fade" id="logout-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-title">Logout</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div>Logout from Admin Page?</div>
+                    </div>
+                    <div class="modal-footer">
+                        <p style="color: red;" id="delete-footer"></p>
+                        <button onclick="AdmLogout()" class="btn btn-danger">Log Out</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>
