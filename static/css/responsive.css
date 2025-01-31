@@ -1,0 +1,472 @@
+/* Media query for iPhone 6/7/8 Plus MD Devices */
+@media (min-width: 414px) and (max-width: 736px) {
+
+    .navbar>.container,
+    .navbar>.container-fluid,
+    .navbar>.container-lg,
+    .navbar>.container-md,
+    .navbar>.container-sm,
+    .navbar>.container-xl,
+    .navbar>.container-xxl {
+        display: flex;
+        align-items: center;
+        justify-content: space-between !important;
+        align-content: center;
+        gap: 10px !important;
+    }
+
+    .button-child {
+        width: fit-content;
+        padding: 5px 8px !important;
+        border-radius: var(--br-8xs);
+        border: 1px solid var(--st1);
+        box-sizing: border-box;
+    }
+
+    .container,
+    .container-fluid,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        width: 100%;
+        padding-right: var(--bs-gutter-x, .75rem);
+        padding-left: var(--bs-gutter-x, .75rem);
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .header-main {
+        /* margin: auto; */
+        /* width: -webkit-fill-available; */
+        /* background-color: rgba(255, 255, 255, 0.06); */
+        backdrop-filter: blur(8px);
+        /* z-index: 9999; */
+    }
+
+    .testimonials_component {
+        height: 650px;
+    }
+
+    .newsletter__block h3 {
+        font-size: 19px;
+        line-height: normal;
+        padding-bottom: 0;
+    }
+
+    img.newsletter__icon {
+        display: none;
+    }
+}
+
+/* Custom Media query */
+@media (max-width: 414px) {
+    .nav_link_extra {
+        display: none;
+    }
+}
+
+/* Custom Media query for SM Mobiles */
+@media (max-width: 340px) {
+    .sign_up {
+        display: none;
+    }
+
+    .hero_bottons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: baseline;
+    }
+
+    .hero_bottons .play_demo_btn img {
+        position: relative;
+        /* bottom: 25px; */
+        top: -20px;
+        max-width: 90px;
+    }
+
+    .hero_bottons .play_demo_btn {
+        align-items: flex-start;
+        padding-top: 20px;
+        position: relative;
+        right: 25px;
+        margin-top: 7px;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero_bottons a.btn-yellow {
+        padding: 10px 10px;
+        margin-top: 10px;
+    }
+}
+
+/* Media query for LG Devices*/
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 45px;
+        max-width: fit-content;
+        width: auto;
+        margin-right: 90px;
+    }
+
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: row;
+        gap: 45px;
+    }
+
+    .header-main {
+        /* padding: 20px 0; */
+        /* display: flex; */
+        /* position: fixed; */
+        /* width: 100%; */
+        /* background-color: rgba(255, 255, 255, 0.06); */
+        backdrop-filter: blur(8px);
+        /* z-index: 9999; */
+    }
+
+    .testimonials_component {
+        height: 400px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .destinations_body {
+        margin-left: 0;
+        margin-right: 0;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-width: 315px;
+    }
+
+    .decore_icon {
+        top: 120px;
+        left: 250px;
+        width: 385px;
+        height: 12px;
+        position: relative;
+    }
+
+    .hero__bg {
+        display: none;
+    }
+
+    .slider_img img {
+        position: relative;
+        right: 50px;
+        transition: transform 0.3s ease;
+        max-width: 700px;
+    }
+
+    .book_a_trip_inner {
+        display: block;
+    }
+
+    .newsletter__block h3 {
+        font-size: 19px;
+        line-height: normal;
+        padding-bottom: 0;
+    }
+
+    .form_block {
+        left: 0%;
+    }
+
+    .customer-logos.slider_block {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+
+    span.child {
+        display: none;
+    }
+
+    .book_a_trip_card_child {
+        position: absolute;
+        left: 35%;
+        top: 62.5%;
+
+    }
+
+    .heart {
+        position: absolute;
+        top: 64%;
+        margin-top: 10px;
+        left: 40%;
+
+    }
+
+    footer.row.row-cols-5.py-5.my-2.site_footer {
+        display: flex;
+        justify-items: center;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+    }
+
+    .form_block {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+        left: 5%;
+    }
+
+    footer.row.row-cols-5.py-5.my-2 {
+        display: grid;
+        justify-items: stretch;
+        padding-right: 30px;
+        padding-left: 30px;
+        max-width: 400px;
+    }
+
+    .footer_info p {
+        font-family: var(--font-poppins);
+        font-size: 13px;
+        line-height: 124.5%;
+        font-weight: 500;
+        color: var(--text-clr);
+        width: 300px;
+    }
+
+    .footer_discover {
+        width: fit-content;
+        display: flex;
+        position: relative;
+        right: 20px;
+    }
+
+    input#email {
+        max-width: 300px;
+        height: 68px;
+    }
+}
+
+/* ----------- iPad Pro ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-width: 1024px) and (min-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) {
+    .slider_img img {
+        max-width: 600px;
+    }
+
+    .hero_heading {
+        font-size: 48px;
+    }
+
+    .decore_icon {
+        top: 80px;
+        left: 155px;
+        position: relative;
+        max-width: 200px;
+    }
+
+    span.child {
+        position: absolute;
+        top: 1030px;
+        left: 225px;
+    }
+
+    .destinations_component {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    .testimonials_component {
+        height: 650px;
+    }
+}
+
+/* # Mobile */
+@media only screen and (max-width: 480px) {
+
+    h1 {
+        display: inline-block;
+        font-size: 40px;
+        line-height: 100%;
+        margin-bottom: 0;
+    }
+
+    .hero_heading {
+        position: sticky;
+        font-size: 40px;
+        letter-spacing: -0.04em;
+        line-height: 60px;
+        font-family: var(--font-volkhov);
+        color: var(--st);
+    }
+
+    .decore_icon {
+        top: 60px;
+        left: 120px;
+        max-width: 175px;
+        height: 12px;
+        position: relative;
+    }
+
+    .hero_bottons {
+        gap: 0px;
+    }
+
+    .hero_bottons .play_demo_btn {
+        width: fit-content;
+        max-width: fit-content;
+    }
+
+    .hero_desc p {
+        max-width: 100%;
+    }
+
+    .hero_bottons {
+        align-items: flex-start;
+    }
+
+    .hero_bottons .play_demo_btn {
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+
+    .hero_bottons .play_demo_btn img {
+        position: relative;
+        /* bottom: 25px; */
+        top: -25px;
+    }
+
+    .slider_img img {
+        position: relative;
+        right: 20px;
+        transition: transform 0.3s ease;
+        max-width: 400px;
+    }
+
+    .tagline {
+        font-size: large;
+        text-transform: uppercase;
+        color: var(--color-salmon);
+        margin-bottom: 0px;
+    }
+
+    .single_service {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin-bottom: 20px;
+    }
+
+    .service_component {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    .single_service_inner {
+        width: 267px;
+        height: 314px;
+    }
+
+    .navbar-light .navbar-toggler::-ms-expand .header-main {
+        background-color: black;
+    }
+
+    .testimonials_inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .testimonials_component {
+        height: 650px;
+    }
+}
+
+
+/* Media Query for iPad (landscape) and larger */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .destinations_body {
+        display: contents;
+    }
+
+    .mt_ipad {
+        margin-top: 40px;
+    }
+
+    .newsletter__bg {
+        right: 0%;
+    }
+
+    .newsletter__block {
+        left: 0%;
+    }
+
+    .form_block {
+        left: 0%;
+    }
+
+    .testimonials_inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+}
+
+@media (width: 1024px) and (height: 1366px) {
+    .destinations_body {
+        display: flex;
+    }
+
+    .testimonials_inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+}
+
+/* Media Query for Mobile Devices (less than 768px) */
+@media (max-width: 768px) {
+    :root {
+        --font-size-31xl: 30px;
+    }
+
+    .newsletter__bg {
+        right: 0%;
+    }
+
+    .newsletter__block {
+        left: 0%;
+    }
+
+    .form_block {
+        left: 0%;
+    }
+
+    .testimonials_inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+}
