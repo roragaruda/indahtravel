@@ -206,7 +206,7 @@ $(document).ready(function(){
         if(imgInput){
             formData.append("thumbnail", $("#thumbnail")[0].files[0]);
             $.ajax({
-                url: "product/add",
+                url: "/product/add",
                 type: "POST",
                 processData:false,
                 contentType: false,
