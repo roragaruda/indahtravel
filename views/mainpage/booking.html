@@ -149,7 +149,7 @@
                 confirmationPopup.style.display = 'none';
 
                 if (action === 'proceed') {
-                    window.location.href = 'http://localhost:8080/indahwisata';
+                    window.location.href = 'indahwisata';
                     window.history.forward();
                 }
             }
@@ -453,7 +453,7 @@
                 const id = pathnameParts[pathnameParts.length - 1];
                 const summaryPrice = document.querySelector('.summary-container p:nth-child(6) span');
                 $.ajax({
-                    url:`http://localhost:8080/product/${id}`,
+                    url:`product/${id}`,
                     method: "GET",
                     success: function(products){
                         const startDate = tdateFormatter(products.StartDate);
@@ -483,7 +483,7 @@
                         console.log(`HI!: ${key}: ${value}`);
                         }
                         $.ajax({
-                            url:`http://localhost:8080/orders/add`,
+                            url:`orders/add`,
                             method: "POST",
                             processData:false,
                             contentType: false,

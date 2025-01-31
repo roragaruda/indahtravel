@@ -106,7 +106,7 @@
         <script>
             $(document).ready(function(){
                 $.ajax({
-                    url:"http://localhost:8080/product",
+                    url:"product",
                     method:"GET",
                     success: function(products){
                         const shuffledProducts = products.sort(() => 0.5 - Math.random());
@@ -342,7 +342,7 @@
                 $(document).ready(function(){
                     var code = $("#orderInput").val();
                     $.ajax({
-                        url:`http://localhost:8080/orders/search/${code}`,
+                        url:`orders/search/${code}`,
                         method:"GET",
                         success: function(orders){
                             $("#orderTableBody").append(`

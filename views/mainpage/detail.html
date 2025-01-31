@@ -155,7 +155,7 @@
                 const pathnameParts = url.pathname.split('/');
                 const id = pathnameParts[pathnameParts.length - 1];
                 $.ajax({
-                    url:`http://localhost:8080/product/${id}`,
+                    url:`product/${id}`,
                     method:"GET",
                     success: function(products){
                         const startDate = tdateFormatter(products.StartDate);
@@ -202,7 +202,7 @@
                 });
 
                 $("#pesan").on("click", function(){
-                    window.location.href=`http://localhost:8080/indahwisata/order/${id}`
+                    window.location.href=`indahwisata/order/${id}`
                 });
             })
         </script>
