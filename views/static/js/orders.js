@@ -2,7 +2,7 @@ function deleteOrder(id, name){
     $("#confirm-message").empty().append(`Confirm Delete Order for:${name}?`)
     $("#delBtn").on("click", function(){
         $.ajax({
-            url: `orders/${id}`,
+            url: `/orders/${id}`,
             method:"DELETE",
             success: function(){
                 window.location.href="indahadmin/orders";
@@ -15,7 +15,7 @@ function changeStatus(id, status){
     var formData = new FormData();
     formData.append("status", status);
     $.ajax({
-        url: `orders/edit/${id}`,
+        url: `/orders/edit/${id}`,
         method:"PUT",
         processData:false,
         contentType: false,
@@ -34,7 +34,7 @@ function appendView(id, image){
 
 $(document).ready(function(){
     $.ajax({
-        url:"orders",
+        url:"/orders",
         method:"GET",
         success: function(orders){
             $("#unconfirmed").empty();

@@ -155,7 +155,7 @@
                 const pathnameParts = url.pathname.split('/');
                 const id = pathnameParts[pathnameParts.length - 1];
                 $.ajax({
-                    url:`product/${id}`,
+                    url:`/product/${id}`,
                     method:"GET",
                     success: function(products){
                         const startDate = tdateFormatter(products.StartDate);

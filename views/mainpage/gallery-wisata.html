@@ -60,7 +60,7 @@
                 const pathnameParts = url.pathname.split('/');
                 const id = pathnameParts[pathnameParts.length - 1];
                 $.ajax({
-                    url:`gallery/${id}`,
+                    url:`/gallery/${id}`,
                     method:"GET",
                     success: function(gallery){
                         $("#title").empty().append(`${gallery.GalleryName}`)
