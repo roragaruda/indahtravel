@@ -6,7 +6,7 @@ import (
 )
 
 func MainPageRoutes(r *gin.Engine) {
-	// Redirect dari root ke /indahwisata dengan path absolut
+	// Redirect dari root ke /indahwisata
 	r.GET("/", func(c *gin.Context) {
 		c.Redirect(302, "/indahwisata")
 	})
@@ -14,7 +14,7 @@ func MainPageRoutes(r *gin.Engine) {
 	r.GET("/indahwisata", controllers.Index)
 	r.GET("/katalog", controllers.Katalog)
 	r.GET("/gallery", controllers.GalleryPage)
-	r.GET("/aboutus", controllers.AboutUs)
+	r.GET("?aboutus", controllers.AboutUs)
 	r.GET("/unauthorized", controllers.Unauthorized)
 	r.GET("/detail/:id", controllers.DetailPage)
 	r.GET("/gallery/:id", controllers.GalleryDetail)
