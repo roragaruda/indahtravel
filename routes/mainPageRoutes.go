@@ -6,6 +6,11 @@ import (
 )
 
 func MainPageRoutes(r *gin.Engine) {
+	// Redirect dari root ke /indahwisata
+	r.GET("/", func(c *gin.Context) {
+		c.Redirect(302, "/indahwisata")
+	})
+
 	r.GET("/indahwisata", controllers.Index)
 	r.GET("/indahwisata/katalog", controllers.Katalog)
 	r.GET("/indahwisata/gallery", controllers.GalleryPage)
