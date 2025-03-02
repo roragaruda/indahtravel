@@ -6,16 +6,19 @@ import (
 )
 
 func MainPageRoutes(r *gin.Engine) {
-	r.GET("/indahwisata", controllers.Index)
-	r.GET("/indahwisata/katalog", controllers.Katalog)
-	r.GET("/indahwisata/gallery", controllers.GalleryPage)
-	r.GET("/indahwisata/aboutus", controllers.AboutUs)
-	r.GET("/indahwisata/unauthorized", controllers.Unauthorized)
-	r.GET("/indahwisata/detail/:id", controllers.DetailPage)
-	r.GET("/indahwisata/gallery/:id", controllers.GalleryDetail)
-	r.GET("/indahwisata/order/:id", controllers.OrderPage)
-	r.GET("/header.html", controllers.Header)
-	r.GET("/footer.html", controllers.Footer)
-	r.GET("/tatacara.html", controllers.Tatacara)
-	r.GET("/pilihan.html", controllers.Pilihan)
+	routes := r.Group("/indahwisata")
+	{
+		routes.GET("/", controllers.Index)
+		routes.GET("/katalog", controllers.Katalog)
+		routes.GET("/gallery", controllers.GalleryPage)
+		routes.GET("/aboutus", controllers.AboutUs)
+		routes.GET("/unauthorized", controllers.Unauthorized)
+		routes.GET("/detail/:id", controllers.DetailPage)
+		routes.GET("/gallery/:id", controllers.GalleryDetail)
+		routes.GET("/order/:id", controllers.OrderPage)
+		routes.GET("/header.html", controllers.Header)
+		routes.GET("/footer.html", controllers.Footer)
+		routes.GET("/tatacara.html", controllers.Tatacara)
+		routes.GET("/pilihan.html", controllers.Pilihan)
+	}
 }

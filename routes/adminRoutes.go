@@ -7,16 +7,19 @@ import (
 )
 
 func AdminPageRoutes(r *gin.Engine) {
-	r.GET("/indahadmin/adminlogin", controllers.Login)
-	r.GET("/indahadmin/index", middleware.RequireAuth, controllers.AdminHome)
-	r.GET("/indahadmin/validate", middleware.RequireAuth, controllers.AdminValidate)
-	r.GET("/indahadmin/product", middleware.RequireAuth, controllers.ProductPage)
-	r.GET("/indahadmin/orders", middleware.RequireAuth, controllers.OrdersPage)
-	r.GET("/indahadmin/productphoto", middleware.RequireAuth, controllers.ProductPhoto)
-	r.GET("/indahadmin/gallery", middleware.RequireAuth, controllers.Gallery)
-	r.GET("/menu.html", controllers.Menu)
-	r.POST("/indahadmin/create", controllers.AdminCreate)
-	r.POST("/indahadmin/login", controllers.AdminLogin)
-	r.POST("/indahadmin/logout", middleware.RequireAuth, controllers.AdminLogout)
-	r.POST("/admin/add", controllers.AdminCreate)
+	admins := r.Group("/indahadmin")
+	{
+		admins.GET("/adminlogin", controllers.Login)
+		admins.GET("/index", middleware.RequireAuth, controllers.AdminHome)
+		admins.GET("/validate", middleware.RequireAuth, controllers.AdminValidate)
+		admins.GET("/product", middleware.RequireAuth, controllers.ProductPage)
+		admins.GET("/orders", middleware.RequireAuth, controllers.OrdersPage)
+		admins.GET("/productphoto", middleware.RequireAuth, controllers.ProductPhoto)
+		admins.GET("/gallery", middleware.RequireAuth, controllers.Gallery)
+		admins.GET("/menu.html", controllers.Menu)
+		admins.POST("/create", controllers.AdminCreate)
+		admins.POST("/login", controllers.AdminLogin)
+		admins.POST("/logout", middleware.RequireAuth, controllers.AdminLogout)
+		admins.POST("/admin/add", controllers.AdminCreate)
+	}
 }
