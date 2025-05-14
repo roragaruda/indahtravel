@@ -33,7 +33,7 @@
         <div class="aboutuspage-container"></div>
         <div id="header-container"></div>
         <script>
-            fetch('/header.html')
+            fetch('header.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-container').innerHTML = data;
@@ -63,7 +63,15 @@
                     <p>HubSpot's company and culture are a lot like our product. They're crafted, not cobbled, for a
                         delightful experience.</p>
                 </div>
-                <img src="/assets/images/LogoIndahWisata.jpeg" alt="Team Photo">
+                <iframe 
+                    width="0" 
+                    height="0" 
+                    src="https://www.youtube.com/embed/l-aV3qt6dKw?autoplay=1&loop=1&playlist=l-aV3qt6dKw"
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="autoplay"
+                    allowfullscreen>
+                </iframe>
             </div>
             <div class="section">
                 <img src="/assets/images/LogoIndahWisata.jpeg" alt="Mission Photo">
@@ -88,7 +96,7 @@
 
         <div id="tatacara-container"></div>
         <script>
-            fetch('/tatacara.html')
+            fetch('tatacara.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('tatacara-container').innerHTML = data;
@@ -99,7 +107,7 @@
     <div class="main-container">
         <div id="footer-container"></div>
         <script>
-            fetch('/footer.html')
+            fetch('footer.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('footer-container').innerHTML = data;

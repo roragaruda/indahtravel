@@ -33,7 +33,7 @@
 <body>
     <section id="menu">
         <script>
-            fetch('/menu.html')
+            fetch('menu.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('menu').innerHTML = data;
@@ -50,6 +50,7 @@
 
         <div class="container">
             <h1>Homepage</h1>
+
             <div class="textarea-grid">
                 <!-- Textarea 1 -->
                 <div class="textarea-item">
