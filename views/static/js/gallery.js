@@ -20,7 +20,7 @@ function appendDeleteGallery(id, name){
             method:"DELETE",
             success:function(){
                 console.log("delete succesful");
-                window.location.href="indahadmin/gallery";
+                window.location.href="/indahadmin/gallery";
             },
             error: function(xhr){
                 const response = JSON.parse(xhr.responseText);
@@ -43,7 +43,7 @@ function addPhotos(id, formData){
         data: formData,
         success: function(){
             console.log("Upload succesful");
-            window.location.href="indahadmin/gallery";
+            window.location.href="/indahadmin/gallery";
         },
         error: function(xhr){
             const response = JSON.parse(xhr.responseText);
