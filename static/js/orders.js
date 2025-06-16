@@ -5,7 +5,7 @@ function deleteOrder(id, name){
             url: `orders/${id}`,
             method:"DELETE",
             success: function(){
-                window.location.href="indahadmin/orders";
+                window.location.href="/indahadmin/orders";
             }
         })
     })
@@ -21,7 +21,7 @@ function changeStatus(id, status){
         contentType: false,
         data: formData,
         success: function(){
-            window.location.href="indahadmin/orders";
+            window.location.href="/indahadmin/orders";
         }
     });
 
