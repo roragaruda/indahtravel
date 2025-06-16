@@ -24,6 +24,11 @@ func main() {
 	routes.AdminPageRoutes(r)
 	routes.MainPageRoutes(r)
 
+	// Redirect root URL ke /indahwisata
+	r.GET("/", func(c *gin.Context) {
+		c.Redirect(302, "/indahwisata")
+	})
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
