@@ -12,7 +12,7 @@ $(document).ready(function(){
             contentType: false,
             data: formData,
             success: function(){
-                window.location.href="indahadmin/product";
+                window.location.href="/indahadmin/product";
             },
             error: function(xhr){
                 const response = JSON.parse(xhr.responseText);
