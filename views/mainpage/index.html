@@ -28,11 +28,7 @@
 </head>
 
 <body class="body">
-        <!-- Tambahkan audio di sini -->
-        <audio autoplay loop style="display: none;">
-            <source src="assets/audio/woods.mp3" type="audio/mpeg">
-        </audio>
-        
+       
     <div class="main-container">
         <div id="header-container"></div>
 
@@ -108,6 +104,10 @@
                 });
         </script>
         <script>
+                        function displayDetail(id){
+                window.location.href=`/indahwisata/detail/${id}`
+            }
+
             $(document).ready(function(){
                 $.ajax({
                     url:"/product",

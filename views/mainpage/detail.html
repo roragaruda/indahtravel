@@ -34,7 +34,7 @@
         <div id="header-container"></div>
 
         <script>
-            fetch('header.html')
+            fetch('/indahwisata/header.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-container').innerHTML = data;
@@ -129,7 +129,7 @@
         <div class="main-container">
             <div id="footer-container"></div>
             <script>
-                fetch('footer.html')
+                fetch('/indahwisata/footer.html')
                     .then(response => response.text())
                     .then(data => {
                         document.getElementById('footer-container').innerHTML = data;
@@ -202,7 +202,7 @@
                 });
 
                 $("#pesan").on("click", function(){
-                    window.location.href=`indahwisata/order/${id}`
+                    window.location.href=`/indahwisata/order/${id}`
                 });
             })
         </script>
